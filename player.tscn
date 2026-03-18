@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://c1l6n2d7k1f6p"]
+
+[ext_resource type="Script" uid="uid://kcwmfsok1hfr" path="res://player.gd" id="1_x8q1v"]
+[ext_resource type="Shader" uid="uid://d3tstwpfhsjbp" path="res://crosshair.gdshader" id="2_y9q2w"]
+[ext_resource type="PackedScene" path="res://gun.tscn" id="3_gun_scene"]
+[ext_resource type="PackedScene" uid="uid://c6v2d1n7k8p5q" path="res://arms.tscn" id="4_arms_scene"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1"]
+shader = ExtResource("2_y9q2w")
+
+[node name="Player" type="CharacterBody3D" unique_id=447373783]
+script = ExtResource("1_x8q1v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1006152275]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=589695248]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_1")
+
+[node name="RecoilPivot" type="Node3D" parent="." unique_id=758689481]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="Camera3D" type="Camera3D" parent="RecoilPivot" unique_id=1588278169]
+
+[node name="Arms" parent="RecoilPivot/Camera3D" unique_id=232839363 instance=ExtResource("4_arms_scene")]
+transform = Transform3D(-0.04, 0, -3.496911e-09, 0, 0.04, 0, 3.496911e-09, 0, -0.04, -0.03685665, -0.55219877, -0.33559185)
+
+[node name="Object_6" parent="RecoilPivot/Camera3D/Arms/Armature/Skeleton3D" parent_id_path=PackedInt32Array(232839363, 1676241187) index="0" unique_id=2067505238]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0.0019642115, -0.0005995035, -0.000421077)
+
+[node name="GunAssembly" parent="RecoilPivot/Camera3D/Arms" unique_id=1402063963 instance=ExtResource("3_gun_scene")]
+transform = Transform3D(-8.7422706e-07, 0, -19.999998, 0, 19.999998, 0, 19.999998, 0, -8.7422706e-07, -15.544088, -1.5776806, 41.03009)
+
+[node name="ADSMarker" type="Marker3D" parent="RecoilPivot/Camera3D" unique_id=1790628153]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.64588284, -0.46448588, 0.26716623)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1479367079]
+
+[node name="CenterContainer" type="CenterContainer" parent="UI" unique_id=1277435645]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Crosshair" type="ColorRect" parent="UI/CenterContainer" unique_id=575994917]
+material = SubResource("ShaderMaterial_1")
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+mouse_filter = 2
+
+[editable path="RecoilPivot/Camera3D/Arms"]

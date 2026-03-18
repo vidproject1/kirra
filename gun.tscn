@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dg4f2k7r7v6m"]
+
+[ext_resource type="PackedScene" uid="uid://c5vev7u0y0y2b" path="res://assets/glock 1.glb" id="1_gloc1"]
+
+[node name="Gun" type="Node3D"]
+
+[node name="GlockModel" parent="." instance=ExtResource("1_gloc1")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="RightHandTarget" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0151111, -0.155706, 0.176465)
+
+[node name="LeftHandTarget" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.061732, -0.15049)

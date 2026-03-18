@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6v2d1n7k8p5q"]
+
+[ext_resource type="PackedScene" uid="uid://c7k2p8x9m0r1t" path="res://assets/arms/pistol pose/gun and arms.glb" id="1_arms_glb"]
+
+[node name="Arms" instance=ExtResource("1_arms_glb")]
