@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://c1l6n2d7k1f6p"]
 
-[ext_resource type="Script" uid="uid://kcwmfsok1hfr" path="res://player.gd" id="1_x8q1v"]
-[ext_resource type="Shader" uid="uid://d3tstwpfhsjbp" path="res://crosshair.gdshader" id="2_y9q2w"]
-[ext_resource type="PackedScene" path="res://gun.tscn" id="3_gun_scene"]
-[ext_resource type="PackedScene" uid="uid://c6v2d1n7k8p5q" path="res://arms.tscn" id="4_arms_scene"]
+[ext_resource type="Script" uid="uid://kcwmfsok1hfr" path="res://scenes/player/player.gd" id="1_x8q1v"]
+[ext_resource type="Shader" uid="uid://d3tstwpfhsjbp" path="res://ui/crosshair.gdshader" id="2_y9q2w"]
+[ext_resource type="PackedScene" path="res://scenes/weapons/gun.tscn" id="3_gun_scene"]
+[ext_resource type="PackedScene" uid="uid://c6v2d1n7k8p5q" path="res://scenes/weapons/arms.tscn" id="4_arms_scene"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1"]
 
