@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://dmuzzleflash123"]
+
+[ext_resource type="Script" uid="uid://cmuzzleflashscript" path="res://scenes/weapons/muzzle_flash.gd" id="1_flash_script"]
+
+[sub_resource type="Gradient" id="Gradient_1"]
+offsets = PackedFloat32Array(0, 0.2, 0.7)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.8, 0.2, 1, 1, 0.2, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1"]
+gradient = SubResource("Gradient_1")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+albedo_texture = SubResource("GradientTexture2D_1")
+emission_enabled = true
+emission = Color(1, 0.4, 0, 1)
+emission_energy_multiplier = 4.0
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_1"]
+material = SubResource("StandardMaterial3D_1")
+size = Vector2(0.6, 0.6)
+
+[node name="MuzzleFlash" type="Node3D"]
+script = ExtResource("1_flash_script")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(1, 0.768627, 0.454902, 1)
+light_energy = 8.0
+omni_range = 10.0
+omni_attenuation = 2.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_1")

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsmoketrail123"]
+
+[ext_resource type="Script" uid="uid://csmoketrailscript" path="res://scenes/weapons/smoke_trail.gd" id="1_trail_script"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.15)
+proximity_fade_enabled = true
+proximity_fade_distance = 0.2
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_1"]
+material = SubResource("StandardMaterial3D_1")
+top_radius = 0.02
+bottom_radius = 0.02
+height = 1.0
+radial_segments = 6
+rings = 1
+
+[node name="SmokeTrail" type="MeshInstance3D"]
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_1")
+script = ExtResource("1_trail_script")
